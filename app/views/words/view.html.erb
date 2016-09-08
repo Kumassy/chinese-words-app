@@ -1,0 +1,74 @@
+<div id="view">
+	<div class="desc"><%= @section %>章<br><%= get_view_header @from %>→<%= get_view_header @to %></div>
+	<table>
+		<thead>
+			<tr>
+				<th class="fav">Fav</th>	
+		        <th class="from"><%= get_view_header @from %></th>
+		        <th class="to"><%= get_view_header @to %></th>
+		    </tr>
+	    </thead>
+		<tbody>
+		    <!-- yield -->
+		    <% @words.each.with_index(1) do |word,index| %>
+		    <tr data-id="<%= word.id %>">
+			    <td id="fav-word-id-<%= word.id %>">
+		          <% if current_user.words.exists? word.id %>
+		            <%= link_to '★',{action: :fav,word:{id: word.id}},method: :post,remote: true %>
+		          <% elsif %>
+		            <%= link_to '☆',{action: :fav,word:{id: word.id}},method: :post,remote: true %>
+		          <% end %>
+		        </td>
+			    <% case @from %>
+				<% when "pinnin" %>
+			        <td class="from"><%= word.styledpinnin %></td>
+		        <% when "kantaiji" %>
+			        <td class="from"><%= word.kantaiji %></td>
+		        <% when "imi" %>
+			        <td class="from"><%= word.imi %></td>
+		        <% end %>
+
+		        <% case @to %>
+				<% when "pinnin" %>
+			        <td class="to"><div class="to-wrapper hidden"><%= word.styledpinnin %></div></td>
+		        <% when "kantaiji" %>
+			        <td class="to"><div class="to-wrapper hidden"><%= word.kantaiji %></div></td>
+		        <% when "imi" %>
+			        <td class="to"><div class="to-wrapper hidden"><%= word.imi %></div></td>
+			    <% else %>
+				    <td class="to">
+					    <div class="to-wrapper hidden">
+						    <div class="pinnin-kantaiji">
+							    <span class="pinnin">
+								    <%= word.styledpinnin %>
+							    </span>
+							    <span class="kantaiji">
+								    | <%= word.kantaiji %>
+							    </span>
+						    </div>
+						    <div class="hinshi-imi">
+							    <span class="hinshi">
+								    【<%= get_styled_hinshi word.hinshi %>】
+								</span>
+							    <span class="imi">
+								    <%= word.imi %>
+								</span>
+							</div>
+							<div class="page-section">
+								<span class="page">
+								    <%= get_styled_page word.page %> | 
+							    </span>
+							    <span class="section">
+								    <%= get_styled_section word.section %>
+							    </span>
+						    </div>
+					    </div>
+				    </td>	
+		        <% end %>
+		    </tr>
+		    <% end %>
+	    </tbody>
+	    
+	</table>
+
+</div>

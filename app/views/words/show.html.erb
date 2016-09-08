@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pinnin:</strong>
+  <%= @word.pinnin %>
+</p>
+
+<p>
+  <strong>Kantaiji:</strong>
+  <%= @word.kantaiji %>
+</p>
+
+<p>
+  <strong>Hinshi:</strong>
+  <%= @word.hinshi %>
+</p>
+
+<p>
+  <strong>Imi:</strong>
+  <%= @word.imi %>
+</p>
+
+
+<p>
+  <strong>Page:</strong>
+  <%= @word.page %>
+</p>
+
+<p>
+  <strong>Section:</strong>
+  <%= @word.section %>
+</p>
+
+<%= link_to 'Edit', edit_word_path(@word) %> |
+<%= link_to 'Back', words_path %>

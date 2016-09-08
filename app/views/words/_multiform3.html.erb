@@ -1,0 +1,33 @@
+<div class="field">
+<%= form_tag({action: :create_multi},id: :create,method: :post) do %>
+
+<table>
+    <tr>
+        <th>pinnin</th>
+        <th>kantaiji</th>
+        <th>hinshi</th>
+        <th>imi</th>
+        <th>rigoushi</th>
+        <th>page</th>
+        <th>section</th>
+    </tr>
+
+    <% @words.each_with_index do |word,index| %>
+      <%= form_for word do |f| %>
+        <tr>
+            <td><%= f.text_field :pinnin , name: "word[#{index}][pinnin]"%></td>
+            <td><%= f.text_field :kantaiji , name: "word[#{index}][kantaiji]"%></td>
+            <td><%= f.text_field :hinshi , name: "word[#{index}][hinshi]"%></td>
+            <td><%= f.text_field :imi , name: "word[#{index}][imi]"%></td>
+            <td><%= f.check_box :rigoushi , name: "word[#{index}][rigoushi]"%></td>
+            <td><%= f.text_field :page , name: "word[#{index}][page]"%></td>
+            <td><%= f.text_field :section , name: "word[#{index}][section]"%></td>
+        </tr>
+      <% end %>
+    <% end %>
+</table>
+
+
+<%= submit_tag('送信',name: nil) %>
+<% end %>
+</div>

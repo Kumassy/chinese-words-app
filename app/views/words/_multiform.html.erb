@@ -1,0 +1,49 @@
+  <%= simple_nested_form_for(@word) do |m| %>
+    <%= m.input :title, label: 'タイトル' %>
+        <table id='tasks'>
+            <%= m.simple_fields_for :steps do |s| %>
+                <tr class='steps-field'>
+                    <td>
+                        <%= s.text_area :content %>
+                    </td>
+                    <td>
+                        <%= s.link_to_remove '削除' %>
+                    </td>
+                </tr>
+            <% end %>
+        </table>
+        <%= m.submit %>
+        <%= m.link_to_add "追加", :steps, data: { target: '#tasks'} %>
+<% end %>
+
+
+
+
+
+<%= form_tag({action: :create_multi},id: :new_multi) do %>
+<div class="field">
+<table>
+    <tr>
+        <th>pinnin</th>
+        <th>kantaiji</th>
+        <th>hinshi</th>
+        <th>imi</th>
+        <th>rigoushi</th>
+        <th>page</th>
+        <th>section</th>
+    </tr>
+    <tr>
+        <td><%= text_field :word, :pinnin %></td>
+        <td><%= text_field :word, :kantaiji %></td>
+        <td><%= text_field :word, :hinshi %></td>
+        <td><%= text_field :word, :imi %></td>
+        <td><%= check_box :word, :rigoushi %></td>
+        <td><%= text_field :word, :page %></td>
+        <td><%= text_field :word, :section %></td>
+    </tr>
+</table>
+<%= submit_tag '送信' %>
+</div>
+<% end %>
+
+

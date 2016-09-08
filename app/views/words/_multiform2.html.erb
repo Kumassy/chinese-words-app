@@ -1,0 +1,19 @@
+<table class="table table-striped table-bordered table-hover">
+    <tbody>
+        <tr>
+           <th>お部屋タイプ名</th>
+           <th>定員人数</th>
+           <th>メモ</th>
+           <th>Action</th>
+        </tr>
+        <%= nested_form_for(:word , wrapper_tag: :tr) do |f| %>
+            <td><%= f.text_field   :pinnin,     class: 'form-control' %></td>
+            <td><%= f.number_field :kantaiji, class: 'form-control' %></td>
+            <td><%= f.text_field   :imi,     class: 'form-control' %></td>
+            <td><%= f.remove_field_link 'Delete', class: 'btn btn-danger', role: 'button' %></td>
+        <% end %>
+    </tbody>
+</table>
+<%= f.add_nested_fields_link :word, 'Add new', class: 'btn btn-primary', role: 'button' %>
+
+<!-- https://recalll.co/app/?q=Rails%204%20yield%20additional%20form%20fields -->

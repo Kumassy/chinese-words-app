@@ -1,0 +1,55 @@
+<div id="words_edit">
+	<section class="mdl-shadow--2dp">
+		<h3>第<%= @section %>章</h3>
+		<p>初めて単語を編集するときやエラーが出たときに参照してください。</p>
+		<%= link_to "へルプページを開く", {action: :help},class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect',:target =>"_blank" %>
+	</section>
+	<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+		<thead>
+			<tr>
+		        <th class="mdl-data-table__cell--non-numeric">ピンイン</th>
+		        <th class="mdl-data-table__cell--non-numeric">ピンイン(プレビュー)</th>
+		        <th class="mdl-data-table__cell--non-numeric">意味</th>
+		        <th class="mdl-data-table__cell--non-numeric">簡体字</th>
+		        <th class="mdl-data-table__cell--non-numeric">品詞</th>
+		        <th>ページ</th>
+		        <th>章</th>
+		        <!-- <th class="mdl-data-table__cell--non-numeric">rigoushi</th> -->
+		        <th>同期</th>
+		        <th>削除</th>
+		    </tr>
+	    </thead>
+	    <tbody>
+		    <!-- yield -->
+		    <% @words.each.with_index(1) do |word,index| %>
+		    <tr class="ajax-section" id="ajax-section-no-<%= index %>" isuptodate="true" data-id="<%= word.id %>">
+		    	<td class="mdl-data-table__cell--non-numeric"><input class="mdl-textfield__input" type="text" name="rawpinnin" value="<%= word.rawpinnin %>"></td>
+		    	<td class="mdl-data-table__cell--non-numeric"><span class="styledpinnnin"><%= word.styledpinnin %></span></td>
+		        <td class="mdl-data-table__cell--non-numeric"><input class="mdl-textfield__input" type="text" name="imi" value="<%= word.imi %>"></td>
+		        <td class="mdl-data-table__cell--non-numeric"><input class="mdl-textfield__input" type="text" name="kantaiji" value="<%= word.kantaiji %>"  autocomplete="on" list="pinnin-translation-list-<%= index %>"></td>
+		        <td class="mdl-data-table__cell--non-numeric"><input class="mdl-textfield__input" type="text" name="hinshi" value="<%= word.hinshi %>" autocomplete="on" list="hinshi-list"></td>
+		        <td><input class="mdl-textfield__input" type="text" name="page" value="<%= word.page %>"></td>
+		        <td><input class="mdl-textfield__input" type="text" name="section" value="<%= word.section %>"></td>
+		        <td><span class="isuptodatesign"></span></td>
+		        <td><img class="delete" src="../../../../assets/button.png"></img></td>
+		    </tr>
+		    <% end %>
+	    </tbody>
+	</table>
+
+	<div id="autocomplete-lists">
+		<datalist id="hinshi-list">
+			<% @hinshis.each do |hinshi| %>
+			<option value="<%= hinshi %>">
+			<% end %>
+		</datalist>
+
+		<% @words.each.with_index(1) do |word,index| %>
+		<datalist id="pinnin-translation-list-<%= index %>">
+		</datalist>
+		<% end %>
+	</div>
+	<input type="button" value="追加" id="ajax-button">
+	<input type="button" value="submit" id="ajax-submit">
+
+</div>

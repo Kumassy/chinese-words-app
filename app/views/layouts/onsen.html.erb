@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja" ng-app="app" ng-csp>
+<head>
+	 <meta charset="utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- JS dependencies (order matters!) -->
+    <!--<script src="../assets/platformOverrides.js"></script>-->
+    <!--<script src="../../../vendor/assets/angular/angular.js"></script>-->
+    <!--<script src="onsen/js/onsenui.js"></script>-->
+
+    <!-- CSS dependencies -->
+    <!--<link rel="stylesheet" href="onsen/css/onsenui.css" />-->
+    <!--<link rel="stylesheet" href="onsen/css/onsen-css-components-blue-basic-theme.css" />-->
+
+    <!-- CSP support mode (required for Windows Universal apps) -->
+    <!--<link rel="stylesheet" href="angular/angular-csp.css" />-->
+	
+
+	<title>Word Test</title>
+
+
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+	<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
+	<script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<script>
+        var module = angular.module('app', ['onsen']);
+
+        // module.controller('MyController', function($scope, $window) {
+        //     $scope.go = function(demo) {
+        //         $window.location.href = demo;
+        //     };
+        // });
+    </script>
+</head>
+<body>
+	<!-- Cordova reference -->
+    <!--<script src="cordova.js"></script>-->
+    <!--<script src="scripts/index.js"></script>-->
+    <!-- -->
+ 
+	<%= yield %>
+
+
+</body>
+</html>

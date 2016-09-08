@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pinnin: MyString
+  kantaiji: MyString
+  hinshi: MyString
+  imi: MyString
+  rigoushi: false
+  page: MyString
+  section: MyString
+
+two:
+  pinnin: MyString
+  kantaiji: MyString
+  hinshi: MyString
+  imi: MyString
+  rigoushi: false
+  page: MyString
+  section: MyString

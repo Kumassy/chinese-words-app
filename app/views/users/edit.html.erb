@@ -1,0 +1,35 @@
+<div id="users">
+<section class="mdl-shadow--2dp">
+
+<h2>Edit User: <%= @user.username %></h2>
+
+<%= form_for(@user) do |f| %>
+  <div class="field">
+    <%= f.label 'メールアドレス' %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </div>
+
+  <div class="field">
+    <%= f.label :commitment %><br />
+    <%= f.text_field :commitment %>
+  </div>
+
+  <div class="field">
+    <%= f.label :role %><br />
+    <%= f.text_field :role %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+  <div class="action">
+  	<%= link_to "戻る",show_user_path(@user.id) %>
+  </div>
+<% end %>
+</section>
+</div>

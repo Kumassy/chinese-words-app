@@ -1,0 +1,65 @@
+<div id="words-printable">
+  <div id="print-settings">
+    <h3>印刷用ページ</h3>
+    <label for="color-pinnin">文字色(ピンイン)</label>
+    <input type="text" name="color-pinnin" value="#000000">
+    <label for="color-kantaiji">文字色(簡体字)</label>
+    <input type="text" name="color-kantaiji" value="#000000">
+    <label for="color-imi">文字色(意味)</label>
+    <input type="text" name="color-imi" value="#000000">
+    <br>
+
+    <label for="font-pinnin">大きさ(ピンイン)</label>
+    <input type="text" name="font-pinnin" value="60">
+    <label for="font-kantaiji">大きさ(簡体字)</label>
+    <input type="text" name="font-kantaiji" value="60">
+    <label for="font-imi">大きさ(意味)</label>
+    <input type="text" name="font-imi" value="13">
+    <br>
+
+    <label for="toggle-hinshi">品詞を表示</label>
+    <input type="checkbox" name="toggle-hinshi" checked>
+    <label for="toggle-page">ページ数を表示</label>
+    <input type="checkbox" name="toggle-page" checked>
+    <label for="toggle-section">章を表示</label>
+    <input type="checkbox" name="toggle-section" checked>
+
+    <li>文字色は名前かカラーコードで指定 (例: pink,orange,#eee)</li>
+    <li>大きさの単位はpx</li>
+  </div>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>ピンイン</th>
+      <th>簡体字</th>
+      <th>意味</th>
+      <th class="printable-hinshi">品詞</th>
+      <th class="printable-page">ページ</th>
+      <th class="printable-section">章</th>
+      <!-- <th colspan="3"></th> -->
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @words.each do |word| %>
+      <tr>
+        <td class="checkbox"><div class="td-inner">&nbsp;</div></td>
+        <td class="printable-pinnin large"><div class="td-inner"><%= word.styledpinnin %></div></td>
+        <td class="printable-kantaiji large kantaiji-font"><div class="td-inner"><%= word.kantaiji %></div></td>
+        <td><div class="printable-imi td-inner"><%= word.imi %></div></td>
+        <td class="printable-hinshi"><div class="td-inner"><%= get_styled_hinshi word.hinshi %></div></td>
+        <td class="printable-page"><div class="td-inner"><%= word.page %></div></td>
+        <td class="printable-section"><div class="td-inner"><%= word.section %></div></td>
+        <!-- <td><%= link_to 'Show', word %></td> -->
+        <!-- <td><%= link_to 'Edit', edit_word_path(word) %></td> -->
+        <!-- <td><%= link_to 'Destroy', word, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<!-- <%= link_to 'New Word', new_word_path %> -->
+</div>

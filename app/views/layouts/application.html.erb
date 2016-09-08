@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Words</title>
+
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+	<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
+	<script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	
+
+</head>
+<body>
+	<% if user_signed_in? && false %>
+	<div id="login-status">
+		<div class="mdl-card mdl-shadow--2dp">
+			<div class="mdl-card__title">
+				<h2 class="mdl-card__title-text"></h2>
+			</div>
+			<div class="mdl-card__supporting-text">
+				<p><%= current_user.username %>としてログインしています</p>
+			</div>
+			<div class="mdl-card__actions mdl-card--border">
+				<%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' %>
+			</div>
+			<div class="mdl-card__actions mdl-card--border">
+				<%= link_to "マイページ",users_my_path, method: :get,class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' %>
+			</div>
+		</div>	
+	</div>
+	<% end %>
+		
+		<p class="notice"><%= notice %></p>
+		<p class="alert"><%= alert %></p>
+	<%= yield %>
+
+	<footer class="mdl-mega-footer">
+		<div class="mdl-mega-footer--middle-section">
+			<% if user_signed_in? && (current_user.role == 'manager' || current_user.role == 'editor' )%>
+			<div class="mdl-mega-footer--drop-down-section">
+				<h1 class="mdl-mega-footer--heading">単語を登録する</h1>
+				<ul class="mdl-mega-footer--link-list">
+					<% sections = (12..20).to_a %>
+					<% sections.each do |section| %>
+		                <li><%= link_to "#{section}章",words_edit_section_path(section_no: section),method: :get %></li>
+	                <% end %>
+				</ul>
+			</div>
+            <% end %>
+			<div class="mdl-mega-footer--drop-down-section">
+				<h1 class="mdl-mega-footer--heading">単語をテスト (ピンインから)</h1>
+				<ul class="mdl-mega-footer--link-list">
+	                <% sections = (12..20).to_a %>
+					<% sections.each do |section| %>
+		                <li><%= link_to "#{section}章",words_view2_section_path(section: section,from: 'pinnin'),method: :get %></li>
+	                <% end %>
+				</ul>
+			</div>
+			<div class="mdl-mega-footer--drop-down-section">
+				<h1 class="mdl-mega-footer--heading">単語をテスト (簡体字から)</h1>
+				<ul class="mdl-mega-footer--link-list">
+	                <% sections = (12..20).to_a %>
+					<% sections.each do |section| %>
+		                <li><%= link_to "#{section}章",words_view2_section_path(section: section,from: 'kantaiji'),method: :get %></li>
+	                <% end %>
+				</ul>
+			</div>
+			<div class="mdl-mega-footer--drop-down-section">
+				<h1 class="mdl-mega-footer--heading">その他</h1>
+				<ul class="mdl-mega-footer--link-list">
+	                <li><%= link_to '全ての単語', words_path %></li>
+					<% if user_signed_in? && current_user.role == 'manager' %>
+						<li><%= link_to 'ユーザーリスト', users_path %></li>
+	                <% end %>
+	                <li><%= link_to '利用条件', terms_of_use_path %></li>
+	                <li><%= link_to '単語登録のヘルプ', words_help_path %></li>
+				</ul>
+			</div>
+		</div>
+		<% if user_signed_in? %>
+		<div class="mdl-mega-footer--bottom-section">
+            <div class="mdl-logo">
+              <%= current_user.username %>としてログインしています
+            </div>
+            <ul class="mdl-mega-footer--link-list">
+				<li><%= link_to 'マイページ', users_my_path,class: 'mdl-button mdl-js-button mdl-js-ripple-effect' %></li>
+				<li><%= link_to 'アカウントの編集', edit_user_registration_path,class: 'mdl-button mdl-js-button mdl-js-ripple-effect' %></li>
+				<li><%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: 'mdl-button mdl-js-button mdl-js-ripple-effect' %></li>
+            </ul>
+		</div>
+		<% end %>
+	</footer>
+
+</body>
+</html>

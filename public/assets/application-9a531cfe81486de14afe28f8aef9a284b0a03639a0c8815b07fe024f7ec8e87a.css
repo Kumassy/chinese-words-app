@@ -1,0 +1,197 @@
+/* line 1, /Users/Kyosuke/Dropbox/rails/Chinese/words/app/assets/stylesheets/scaffolds.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 9, /Users/Kyosuke/Dropbox/rails/Chinese/words/app/assets/stylesheets/scaffolds.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 15, /Users/Kyosuke/Dropbox/rails/Chinese/words/app/assets/stylesheets/scaffolds.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 21, /Users/Kyosuke/Dropbox/rails/Chinese/words/app/assets/stylesheets/scaffolds.scss */
+a {
+  color: #000;
+}
+/* line 24, /Users/Kyosuke/Dropbox/rails/Chinese/words/app/assets/stylesheets/scaffolds.scss */
+a:visited {
+  color: #666;
+}
+/* line 28, /Users/Kyosuke/Dropbox/rails/Chinese/words/app/assets/stylesheets/scaffolds.scss */
+a:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+/* line 35, /Users/Kyosuke/Dropbox/rails/Chinese/words/app/assets/stylesheets/scaffolds.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 40, /Users/Kyosuke/Dropbox/rails/Chinese/words/app/assets/stylesheets/scaffolds.scss */
+#notice {
+  color: green;
+}
+
+/* line 44, /Users/Kyosuke/Dropbox/rails/Chinese/words/app/assets/stylesheets/scaffolds.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 50, /Users/Kyosuke/Dropbox/rails/Chinese/words/app/assets/stylesheets/scaffolds.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 58, /Users/Kyosuke/Dropbox/rails/Chinese/words/app/assets/stylesheets/scaffolds.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 69, /Users/Kyosuke/Dropbox/rails/Chinese/words/app/assets/stylesheets/scaffolds.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+@charset "UTF-8";
+/* line 6, /Users/Kyosuke/Dropbox/rails/Chinese/words/app/assets/stylesheets/words.scss */
+body {
+  padding: 0px;
+  background: #eee;
+}
+
+/* line 11, /Users/Kyosuke/Dropbox/rails/Chinese/words/app/assets/stylesheets/words.scss */
+#ajax-test table {
+  margin: 40px;
+  width: calc(100% - 80px);
+}
+/* line 18, /Users/Kyosuke/Dropbox/rails/Chinese/words/app/assets/stylesheets/words.scss */
+#ajax-test table .mdl-textfield__input {
+  outline: none;
+}
+/* line 23, /Users/Kyosuke/Dropbox/rails/Chinese/words/app/assets/stylesheets/words.scss */
+#ajax-test table input[type=checkbox] {
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+}
+/* line 30, /Users/Kyosuke/Dropbox/rails/Chinese/words/app/assets/stylesheets/words.scss */
+#ajax-test table input[type="checkbox"] + span:before {
+  display: inline-block;
+  content: "";
+  vertical-align: top;
+  background-color: white;
+  color: black;
+  border-style: solid;
+  border-width: 2px;
+  width: 13px;
+  height: 13px;
+  margin-left: -16px;
+  margin-top: 1px;
+  margin-right: 0;
+}
+/* line 44, /Users/Kyosuke/Dropbox/rails/Chinese/words/app/assets/stylesheets/words.scss */
+#ajax-test table input[type="checkbox"] + span:before {
+  border-radius: 0.1875em;
+}
+/* line 47, /Users/Kyosuke/Dropbox/rails/Chinese/words/app/assets/stylesheets/words.scss */
+#ajax-test table input[type="checkbox"]:checked + span:before {
+  content: "\2714";
+  line-height: 0.625;
+  font-size: 15px;
+}
+/* line 54, /Users/Kyosuke/Dropbox/rails/Chinese/words/app/assets/stylesheets/words.scss */
+#ajax-test table tr[isuptodate="true"] td span.isuptodatesign:before {
+  content: "●";
+  color: #4caf50;
+  font-size: 40px;
+  transition: .3s;
+}
+/* line 64, /Users/Kyosuke/Dropbox/rails/Chinese/words/app/assets/stylesheets/words.scss */
+#ajax-test table tr[isuptodate="false"] td span.isuptodatesign:before {
+  content: "●";
+  color: #f44336;
+  font-size: 40px;
+  transition: .3s;
+}
+/* line 73, /Users/Kyosuke/Dropbox/rails/Chinese/words/app/assets/stylesheets/words.scss */
+#ajax-test table img.delete {
+  width: 30px;
+  height: 30px;
+}
+
+/* line 87, /Users/Kyosuke/Dropbox/rails/Chinese/words/app/assets/stylesheets/words.scss */
+#view {
+  font-size: 30px;
+}
+/* line 89, /Users/Kyosuke/Dropbox/rails/Chinese/words/app/assets/stylesheets/words.scss */
+#view table {
+  width: 100%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+/* line 94, /Users/Kyosuke/Dropbox/rails/Chinese/words/app/assets/stylesheets/words.scss */
+#view table tr.header {
+  height: 50px;
+}
+/* line 98, /Users/Kyosuke/Dropbox/rails/Chinese/words/app/assets/stylesheets/words.scss */
+#view table td.to {
+  background: #EEEEEE;
+  padding: 20px;
+  border-radius: 4px;
+}
+/* line 103, /Users/Kyosuke/Dropbox/rails/Chinese/words/app/assets/stylesheets/words.scss */
+#view table td.from {
+  padding: 20px;
+}
+/* line 107, /Users/Kyosuke/Dropbox/rails/Chinese/words/app/assets/stylesheets/words.scss */
+#view .desc {
+  background: #eeeeee;
+  border-radius: 4px;
+  height: 30px;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+

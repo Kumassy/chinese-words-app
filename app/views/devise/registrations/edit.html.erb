@@ -1,0 +1,49 @@
+<div id="users">
+<section class="mdl-shadow--2dp">
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label 'メールアドレス' %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label 'ユーザーネーム' %><br />
+    <%= f.text_field :username %>    
+  </div>
+
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>まだメールアドレスの確認ができていません : <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label 'パスワード' %> <i>(変更したくない場合は空欄にしてください)</i><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label 'パスワード(再入力)' %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label '現在のパスワード' %> <i>(確認用)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
+
+<h3>アカウントを削除</h3>
+
+<p>アカウントを削除しますか？<br>アカウントを削除するとふぁぼリストの復旧はできません。 <%= button_to "アカウントを削除", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+<%= link_to "戻る", :back ,class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' %>
+</section>
+</div>

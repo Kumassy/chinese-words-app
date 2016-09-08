@@ -1,0 +1,25 @@
+<div id="onsen">
+
+<!-- <ons-sliding-menu var="app.menu" menu-page="menu.html" main-page="page1.html" max-slide-distance="200px" type="reveal" side="left"> -->
+<!-- <ons-navigator var="globalNavi"> -->
+<!--   <ons-navigator var="navi" page="page1.html">
+  </ons-navigator>
+ -->
+ <!-- </ons-navigator>-->
+
+<!-- </ons-sliding-menu> -->
+
+<ons-navigator var="navi" page="page1.html"></ons-navigator>
+
+
+<ons-template id="page1.html" class="view-page-template">
+  <ons-page>
+    <ons-toolbar>
+      <div class="center">Error</div>
+    </ons-toolbar>
+    <div style="text-align: center">
+      <h1>単語テストを利用できません</h1>
+      <p>単語テストを利用するには、単語データベースへ少なくとも<%= @required_commitment %>個の単語の追加する必要があります。</p>
+    </div>
+  </ons-page>
+</ons-template>

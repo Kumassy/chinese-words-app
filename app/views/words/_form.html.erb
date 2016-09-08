@@ -1,0 +1,41 @@
+<%= form_for(@word) do |f| %>
+  <% if @word.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@word.errors.count, "error") %> prohibited this word from being saved:</h2>
+
+      <ul>
+      <% @word.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :pinnin %><br>
+    <%= f.text_field :pinnin %>
+  </div>
+  <div class="field">
+    <%= f.label :kantaiji %><br>
+    <%= f.text_field :kantaiji %>
+  </div>
+  <div class="field">
+    <%= f.label :hinshi %><br>
+    <%= f.text_field :hinshi %>
+  </div>
+  <div class="field">
+    <%= f.label :imi %><br>
+    <%= f.text_field :imi %>
+  </div>
+  <div class="field">
+    <%= f.label :page %><br>
+    <%= f.text_field :page %>
+  </div>
+  <div class="field">
+    <%= f.label :section %><br>
+    <%= f.text_field :section %>
+  </div>
+  <div class="actions">
+    <%= submit_tag  %>
+  </div> 
+<% end %>

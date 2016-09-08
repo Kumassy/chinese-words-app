@@ -1,0 +1,41 @@
+<div id="users">
+<h1>Users#index</h1>
+<p>Find me in app/views/users/index.html.erb</p>
+<% provide(:title, 'All users') %>
+<h1>All users</h1>
+
+<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+	<thead>
+		<tr>
+			<th class="mdl-data-table__cell--non-numeric">id</th>
+			<th class="mdl-data-table__cell--non-numeric">email</th>
+			<th class="mdl-data-table__cell--non-numeric">username</th>
+			<th class="mdl-data-table__cell--non-numeric">role</th>
+			<th class="mdl-data-table__cell--non-numeric">commitment</th>
+			<th class="mdl-data-table__cell--non-numeric">sign_in_count</th>
+			<th class="mdl-data-table__cell--non-numeric">current_sign_in_at</th>
+			<th class="mdl-data-table__cell--non-numeric">last_sign_in_at</th>
+			<th class="mdl-data-table__cell--non-numeric">confirmed_at</th>
+			<th class="mdl-data-table__cell--non-numeric">confirmation_sent_at</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @users.each do |user| %>
+		<tr>
+			<td class="mdl-data-table__cell--non-numeric"><%= user.id %></td>
+			<td class="mdl-data-table__cell--non-numeric"><%= user.email %></td>
+		    <td class="mdl-data-table__cell--non-numeric">
+		      <%= link_to user.username, {action: :show,id: user.id} %>
+		    </td>
+		    <td class="mdl-data-table__cell--non-numeric"><%= user.role %></td>
+		    <td class="mdl-data-table__cell--non-numeric"><%= user.commitment %></td>
+		    <td class="mdl-data-table__cell--non-numeric"><%= user.sign_in_count %></td>
+		    <td class="mdl-data-table__cell--non-numeric"><%= user.current_sign_in_at.to_time unless user.current_sign_in_at.nil? %></td>
+		    <td class="mdl-data-table__cell--non-numeric"><%= user.last_sign_in_at.to_time unless user.last_sign_in_at.nil?%></td>
+		    <td class="mdl-data-table__cell--non-numeric"><%= user.confirmed_at.to_time unless user.confirmed_at.nil?%></td>
+		    <td class="mdl-data-table__cell--non-numeric"><%= user.confirmation_sent_at.to_time unless user.confirmation_sent_at.nil?%></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+</div>

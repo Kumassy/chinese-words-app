@@ -1,0 +1,43 @@
+<div id="users">
+<% provide(:title, 'MyPage') %>
+
+<section class="mdl-shadow--2dp">
+<h1>マイページ</h1>
+	<section>
+		<h3>アカウントを編集</h3>
+		<p>メールアドレスやパスワードを変更できます
+		<%= link_to "変更", edit_user_registration_path, method: :get,class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' %>
+		</p>
+	</section>
+	<section>
+		<h3>ふぁぼ りすと</h3>
+		<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+			<thead>
+				<tr>
+			        <!-- <th class="mdl-data-table__cell--non-numeric">id</th> -->
+			        <th class="mdl-data-table__cell--non-numeric">ピンイン</th>
+			        <th class="mdl-data-table__cell--non-numeric">簡体字</th>
+			        <th class="mdl-data-table__cell--non-numeric">意味</th>
+			        <th class="mdl-data-table__cell--non-numeric">品詞</th>
+			        <th>ページ</th>
+			        <th>章</th>
+			    </tr>
+		    </thead>
+		    <tbody>
+			    <% current_user.words.each do |word| %>
+			    <tr>
+			    	<!-- <td class="mdl-data-table__cell--non-numeric"><%= word.id %></td> -->
+			    	<td class="mdl-data-table__cell--non-numeric"><%= word.pinnin %></td>
+			        <td class="mdl-data-table__cell--non-numeric"><%= word.kantaiji %></td>
+			        <td class="mdl-data-table__cell--non-numeric"><%= word.imi %></td>
+			        <td class="mdl-data-table__cell--non-numeric"><%= get_styled_hinshi word.hinshi %></td>
+			        <td><%= word.page %></td>
+			        <td><%= word.section %></td>
+			    </tr>
+			    <% end %>
+		    </tbody>
+		    
+		</table>
+	</section>
+</section>
+</div>

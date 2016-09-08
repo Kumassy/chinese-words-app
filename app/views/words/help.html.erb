@@ -1,0 +1,79 @@
+<div id="words">
+	<h3>ショートカットキー</h3>
+	<h5>新規行を追加</h5>
+	Ctrl + d 【Mac】| Ctrl + q 【windows】 | Alt + d | Alt + q
+	<h5>submit (サーバーに反映)</h5>	
+	Ctrl + Enter | Alt + Enter | Shift + Enter
+	
+	<h5>その他</h5>
+	品詞は途中まで打つか、そのまま↓キーを押して選択→Enter<br>簡体字は↓キーで選択→Enter
+	
+	<h3>入力値の制約</h3>
+	<p>ピンイン：必須 | 簡体字：必須 | 品詞：[名詞：noun,動詞：verb,形容詞：adjective,副詞：adverb,前置詞：preposition,数詞：number,接続詞：conjunction,間投詞：exclamation,離合詞：rigoushi,熟語：idiom,助動詞：auxiliary_verb,その他：other,未分類：uncategorized] | ページ：必須 (数値) | 章：必須 (数値)</p>
+	
+	<h3>声調つき文字の入力</h3>
+	<table class="mdl-data-table mdl-js-data-table">
+		<tbody>
+			<tr>
+				<td>a1→ā</td>
+				<td>a2→á</td>
+				<td>a3→ǎ</td>
+				<td>a4→à</td>
+			</tr>
+			<tr>
+				<td>e1→ē</td>
+				<td>e2→é</td>
+				<td>e3→ě</td>
+				<td>e4→è</td>
+			</tr>
+			<tr>
+			    <td>i1→ī</td>
+			    <td>i2→í</td>
+			    <td>i3→ǐ</td>
+			    <td>i4→ì</td>
+		    </tr>
+		    <tr>
+			    <td>o1→ō</td>
+			    <td>o2→ó</td>
+			    <td>o3→ǒ</td>
+			    <td>o4→ò</td>
+		    </tr>
+		    <tr>
+			    <td>u1→ū</td>
+			    <td>u2→ú</td>
+			    <td>u3→ǔ</td>
+			    <td>u4→ù</td>
+		    </tr>
+		    <tr>
+			    <td>v1→ǖ</td>
+			    <td>v2→ǘ</td>
+			    <td>v3→ǚ</td>
+			    <td>v4→ǜ</td>
+		    </tr>
+		    <tr>
+		    	<td colspan="4">v→ü</td>
+		    </tr>
+	    </tbody>
+	    
+	</table>
+	<h3>サーバーへの反映</h3>
+	<ul>
+		<li>行の新規追加、項目の変更をすると「同期」項目が赤色になります。「同期」項目が赤色の場合、項目の変更がサーバーに反映されていないことを表します。</li>
+		<li>「submit」ボタンを押し、サーバーに項目の変更が反映されると、「同期」項目が緑色になります。</li>
+		<li>行の削除は「削除」ボタンを押しても「同期」が赤色になりませんが、そのままではサーバーに反映されません。削除をキャンセルするときは再度「削除」ボタンを押してください。削除を確定する場合は、「submit」ボタンを押してください。</li>
+		<li>各行は基本的に上から同期されていきますが、ネットワークの状態によってたまに順番が入れ替わることがあります。そのため項目を新規追加したあとにページを再読み込みすると一部順番が入れ替わっていることがあります。</li>
+	</ul>
+
+	<h3>エラー</h3>
+	<%= image_tag "error_unprocessable.png" ,:width => "400px"%>
+	<p>「submit」ボタンを押したときに図のようなエラーが出る場合があります。この時は以下の原因が考えられます。</p>
+	<ul>
+		<li>入力値が上記「入力値の制約」を満たしていない</li>
+		<li>単語を新規追加するときに、なんらかの項目からフォーカスを外していない</li>
+	</ul>
+	<p>単語をまとめて新規追加するときに最後の単語だけこのエラーが起きることがあります。その時には<strong style="color:red;">画面の空いているところをクリックして</strong>から再度「submit」ボタンを押してください。</p>
+	<hr>
+	<%= image_tag "error_not_found.png" ,:width => "400px"%>
+	<p>このエラーは新規追加した項目に対して「削除」ボタンを押し、「submit」ボタンを押すと発生します。気にしないでください。</p>
+
+</div>

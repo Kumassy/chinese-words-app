@@ -1,0 +1,293 @@
+// Place all the styles related to the words controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+body{
+	padding:0px;
+	background: #eee;
+}
+a{
+	text-decoration: none;
+}
+#words{
+	background: #fff;
+	padding: 20px;
+	margin: 20px;
+}
+#words-printable{
+	background: #fff;
+	padding: 20px;
+
+	@media print{
+		#print-settings{
+			display:none;
+		}
+	}
+
+	table{
+		border: 1px solid #aaa;
+		border-collapse:collapse;
+
+		width:100%;
+		tr{
+			border-bottom: 1px solid #aaa;
+			border-top: 1px solid #aaa;
+
+			td,th,.td-inner{
+				page-break-inside:avoid;
+				page-break-after: auto;
+			}
+		}
+		th{
+			margin: 0px;
+			padding: 20px;
+		}
+		td{
+			margin: 0;
+		}
+		.td-inner{
+			padding: 30px 10px;
+		}
+		.large{
+			font-size:60px;
+		}
+		.checkbox{
+			border-right: 1px solid #aaa;
+			width: 40px;
+			height:100%;
+		}
+		.kantaiji-font{
+			font-family: 'myWebFont',STXihei, "Microsoft YaHei", "微软雅黑", "华文细黑", serif;
+		}
+		.printable-hidden{
+			display: none;
+		}
+	}
+}
+#words_edit{
+	padding:20px;
+
+	.mdl-shadow--2dp{
+		background: #fff;
+		padding: 20px;
+	}
+	
+	table{
+		.ajax-section[isuptodate="true"]{
+			//background : #00FF00;
+		}
+		.ajax-section[isuptodate="false"]{
+			//background : #ff0000;
+		}
+		.mdl-textfield__input{
+			outline:none;
+
+		}
+
+		input[type=checkbox]{
+			width: 17px;
+			height: 17px;
+			margin: 0;
+			padding: 0;
+			opacity: 0;
+		}
+		input[type="checkbox"]+span:before{
+			display: inline-block;
+			content: "";
+			vertical-align: top;
+			background-color: white;
+			color: black;
+			border-style: solid;
+			border-width: 2px;
+			width: 13px;
+			height: 13px;
+			margin-left: -16px;
+			margin-top: 1px;
+			margin-right: 0;
+		}
+		input[type="checkbox"]+span:before{
+			border-radius: 0.1875em;
+		}
+		input[type="checkbox"]:checked+span:before{
+			content: "\2714";
+			line-height: 0.625;
+			font-size: 15px;
+		}
+		tr[isuptodate="true"]{
+			td{	
+				span.isuptodatesign:before{
+					content:"●";
+					color: #4caf50;
+					font-size:40px;
+					transition: .3s;
+				}
+			}
+		}
+		tr[isuptodate="false"]{
+			td{
+				span.isuptodatesign:before{
+					content:"●";
+					color: #f44336;
+					font-size:40px;
+					transition: .3s;
+
+				}
+			}
+		}
+		tr.deleting{
+			background-color: #ffffff;
+			-webkit-background-size: 30px 30px;
+			-moz-background-size: 30px 30px;
+			background-size: 30px 30px;
+			background-image: -webkit-linear-gradient(45deg,  #f44336 25%, #f44336 25%, transparent 25%, transparent 75%, #f44336 75%, #f44336 75%),
+			                  -webkit-linear-gradient(-45deg, #f44336 25%, #f44336 25%, transparent 25%, transparent 75%, #f44336 75%, #f44336 75%);
+			background-image: -moz-linear-gradient(45deg,  #f44336 25%, #f44336 25%, transparent 25%, transparent 75%, #f44336 75%, #f44336 75%),
+			                  -moz-linear-gradient(-45deg, #f44336 25%, #f44336 25%, transparent 25%, transparent 75%, #f44336 75%, #f44336 75%);
+			background-image: -ms-linear-gradient(45deg,  #f44336 25%, #f44336 25%, transparent 25%, transparent 75%, #f44336 75%, #f44336 75%),
+			                  -ms-linear-gradient(-45deg, #f44336 25%, #f44336 25%, transparent 25%, transparent 75%, #f44336 75%, #f44336 75%);
+			background-image: -o-linear-gradient(45deg,  #f44336 25%, #f44336 25%, transparent 25%, transparent 75%, #f44336 75%, #f44336 75%),
+			                  -o-linear-gradient(-45deg, #f44336 25%, #f44336 25%, transparent 25%, transparent 75%, #f44336 75%, #f44336 75%);
+			background-image: linear-gradient(45deg,  #f44336 25%, #f44336 25%, transparent 25%, transparent 75%, #f44336 75%, #f44336 75%),
+			                  linear-gradient(-45deg, #f44336 25%, #f44336 25%, transparent 25%, transparent 75%, #f44336 75%, #f44336 75%);
+		}
+		tr.deleted{
+			display: none;
+		}
+		img.delete{
+			width:20px;
+			height:20px;
+		}
+
+	}
+}
+
+#view{
+	font-size: 30px;
+	table{
+		width: 100%;
+		padding-left:10%;
+		padding-right:10%;
+
+		thead{
+			tr{
+				height: 50px;
+			}
+			th.fav{
+				width: 20px;
+			}
+			th.from{
+				width: 200px;
+			}
+		}
+		tbody{
+			
+			td.to{
+				background: #ddd;
+				padding: 20px;
+				border-radius: 4px;
+
+				div{
+					# display:none;
+				}
+				div.to-wrapper{
+					display: block !important;
+				}
+				div.to-wrapper.hidden{
+					visibility : hidden;
+				}
+				span.pinnin{
+					font-size: 30px;
+				}
+				span.kantaiji{
+					font-size: 30px;
+				}
+			}
+			td.from{
+				padding: 20px;
+			}
+		}
+	}
+	.desc{
+		background: #eeeeee;
+		border-radius:4px;
+		height: 30px;
+		width:100%;
+		padding:20px;
+		text-align: center;
+	    line-height: 30px;
+	}
+
+}
+
+#onsen{
+	div.summary{
+		position: relative;
+
+		box-sizing: border-box;
+		background: transparent;
+		text-overflow: ellipsis;
+	    white-space: nowrap;
+	    margin: 0 auto;
+        padding: 20px 10px;
+
+        border-radius: 3px;
+        border: 1px solid rgba(0,0,0,0.2);
+	    border-top-color: rgba(0, 0, 0, 0.2);
+	    border-top-style: solid;
+	    border-top-width: 1px;
+
+	    
+		display: inline-block;
+		min-width: 300px;
+	    div.kantaiji{
+			font-size: 45px;
+			line-height: 50px;
+		}
+		div.summary-inner.summary-hidden{
+			visibility : hidden;
+		}
+	}
+	
+	
+	div.pinnin-wrapper{
+	    span.pinnin{
+			font-size: 56px;
+		    line-height: 2;
+		    margin: 24px 0;
+
+		    display: inline-block;
+			vertical-align: middle;
+	    }
+	    span.fav{
+		    font-size: 30px;
+		    padding:0;
+
+		    display: inline-block;
+			vertical-align: middle;
+
+		    a{
+			    margin:0;
+		    }
+		}
+		span.fav-hidden{
+			font-size: 30px;
+			visibility : hidden;
+
+			display: inline-block;
+			vertical-align: middle;
+		}
+    }
+	.button-hidden{
+		visibility : hidden;
+	}
+	@font-face{
+		font-family: 'myWebFont'; 
+		src: url('stxihei.ttf') format('truetype');
+	}
+	.kantaiji-font{
+		font-family: 'myWebFont',STXihei, "Microsoft YaHei", "微软雅黑", "华文细黑", serif;
+	}
+
+
+}
