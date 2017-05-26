@@ -46,7 +46,7 @@ Rails.application.configure do
     :port => 587,
     :domain => 'smtp.gmail.com',
     :user_name => "chinese.learning.app@gmail.com", #gmailアドレス
-    :password => "sukhf3SzjVDS", #gmailパスワード
+    :password => "*************", #gmailパスワード
     :authentication => 'login',
   }
 end
