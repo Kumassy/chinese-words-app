@@ -1,5 +1,15 @@
 # Chinese Words App
+Learn some Chinese words on the Web to get a better grade in the final exam ;)
 
+You can:
+- create a user account and save your status across any devices
+- put stars on difficult words
+- register new words
+- edit words
+
+![learn-words](https://cloud.githubusercontent.com/assets/6278784/26492061/44d103fa-424d-11e7-96cb-40632f3ac270.png)
+
+![edit-words](https://cloud.githubusercontent.com/assets/6278784/26492064/485b2622-424d-11e7-8f95-1522eb7f7767.png)
 
 ## Installation
 ```
